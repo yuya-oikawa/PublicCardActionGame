@@ -1,0 +1,86 @@
+extends ../layouts/layout
+
+block append vars
+  - var key = "index"
+  - var page = settings[key]
+
+
+block contents
+  header#header
+    p 使用するキャラクターを選択してください。
+    ul.characterSelection
+      li
+        a.Warrior#Warrior
+          table
+            tbody
+              tr
+                td 名前
+                td ファイター
+              tr
+                td HP
+                td 80
+              tr
+                td 山札
+                td 12
+              tr
+                td 手札
+                td 4
+              tr
+                td 説明
+                td 初心者向け<br>総合的に強く攻守のバランスが良い
+      li
+        a.Wizard#Wizard
+          table
+            tbody
+              tr
+                td 名前
+                td ウィザード
+              tr
+                td HP
+                td 80
+              tr
+                td 山札
+                td 9
+              tr
+                td 手札
+                td 4
+              tr
+                td 説明
+                td 中級者向け<br>敵の防御力を貫通する強力な魔法攻撃を行える。<br>魔法攻撃以外弱い
+    ul.explanation
+      li explanation:
+      li ①本ゲームは山札から配れるカードーー手札を使用することで敵を倒すゲームです。
+      li ②手札は記載されている「Cost」を支払うことで効果を発揮させます。
+      li ③手札はターン毎の使い切りとなり、各ターンの最初に山札から引き直します。
+      li ④山札がなくなった場合、「山札の再構成」を行う必要があります。
+      li ⑤「ターンの終了」または、「山札の再構成」を行うと敵のターンへと移行します。<br>　「山札の再構成」はターンがプレイヤーの最初の行動時にのみ選択できます。
+
+  main#main
+    ul.enemy#enemy
+      li ▼Enemy
+      li.name#enemyName test:敵
+      li.hp#enemyHp test:100
+      li.maxhp#enemyMaxHp test:100
+    .explanation ▼敵の行動予定です。<br>　敵のターンでは以下の枚数分行動が行われます。
+    .enemyBill#enemyBill
+      ul
+        li 敵Card
+      ul
+        li 敵Card
+      ul
+        li 敵Card
+    .explanation ▼プレイヤーの行動リストです。<br>　クリックすることでコストと行動数を増加し、効果を発生させます。
+    .behavior#behavior
+    .standardMotion
+      button#end ターンを終了する。
+      button#Reconstruction 山札を再構成する。
+    ul.player#player
+      li ▼Player
+      li.playername#playerName test:仲間
+      li.playerhp#playerHp test:100
+      li.playermaxhp#playerMaxHp test:100
+      li.Cost#Cost test:5/5
+      li.behaviorLimit#behaviorLimit test:5/5
+    .log
+      p Message
+      .messagelog#messagelog

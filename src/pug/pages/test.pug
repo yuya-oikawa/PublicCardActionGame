@@ -1,0 +1,9 @@
+extends ../layouts/layout
+
+block append vars
+  - var key = "test"
+  - var page = settings[key]
+
+block contents
+  main
+    p #{environment}

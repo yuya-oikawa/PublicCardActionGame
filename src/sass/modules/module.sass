@@ -1,0 +1,86 @@
+@charset "UTF-8"
+
+// ここではBEMでいうBlockを定義する。ヘッダー、フッターなど
+// conponents/ では実現できない部分を定義する。
+// ファイル内の記述が多すぎてしまう場合は、ファイル分割などをして、管理しやすくする。
+
+header
+  position: fixed
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  display: flex
+  flex-direction: column
+  justify-content: center
+  height: 100vh
+  &.hidden
+    display: none
+  p
+    text-align: center
+    margin-bottom: 30px
+    font-size: 22px
+  > .characterSelection
+    margin: 0 auto
+    display: flex
+    justify-content: space-between
+    > li
+      width: 35%
+      min-width: 200px
+      background-color: #eee
+      > a
+        min-height: 180px
+        display: block
+        border: 1px solid #ccc
+        td
+          min-width: 2.5em
+  .explanation
+    margin: 30px 0
+    text-align: left
+    font-size: 18px
+
+main
+  visibility: hidden
+  opacity: 0
+  margin-left: 5%
+  &.visible
+    visibility: visible
+    opacity: 1
+    display: flex
+    flex-direction: column
+    justify-content: center
+    .enemy
+      margin-top: 5px
+    .player
+      margin-top: 5px
+    .explanation
+      margin-top: 20px
+    .enemyBill
+      +cardSize
+    .behavior
+      +cardSize
+    .standardMotion
+      display: flex
+      font-weight: bolder
+      text-align: center
+      background-color: #fff
+      border-radius: 5px
+      width: 40%
+      margin-left: 5%
+      button
+        width: 100%
+        height: 3em
+    .log
+      width: 80%
+      margin: 10px auto 3px 5%
+      p
+        margin-bottom: 5px
+        background-color: #eee
+        width: 5em
+      .messagelog
+        height: 150px
+        overflow: scroll
+        background-color: #eee
+        border-style: solid
+        border-width: 1px
+        p
+          width: 100%

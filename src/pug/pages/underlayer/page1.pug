@@ -1,0 +1,10 @@
+extends ../../layouts/layout
+
+block append vars
+  - var key = "underlayer"
+  - var page = settings[key].page1
+
+block contents
+  main
+    h2 This is Testpage
+    p #{page.name}
